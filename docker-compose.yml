@@ -6,7 +6,7 @@ glpi:
   links:
     - mysql:db
   volumes:
-    - ./glpi/glpi:/var/www/html
+    - ./glpi:/var/www/html
 
 # Database persistent data
 mysqldata:
@@ -18,8 +18,8 @@ mysqldata:
 mysql:
   image: mariadb
   environment:
-    - MYSQL_ROOT_PASSWORD=arcom1973
-    - MYSQL_DATABASE=glpiatualizacao
+    - MYSQL_ROOT_PASSWORD=123456
+    - MYSQL_DATABASE=glpi
   volumes_from:
     - mysqldata
   volumes:
