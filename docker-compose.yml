@@ -6,7 +6,8 @@ glpi:
   links:
     - mysql:db
   volumes:
-    - ./glpi:/var/www/html
+    - ./glpi:/var/www/html/glpi
+  restart: unless-stopped 
 
 # Database persistent data
 mysqldata:
@@ -24,3 +25,4 @@ mysql:
     - mysqldata
   volumes:
     - ./database:/docker-entrypoint-initdb.d
+  restart: unless-stopped 
