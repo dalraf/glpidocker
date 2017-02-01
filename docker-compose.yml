@@ -44,7 +44,8 @@ services:
       volumes_from:
         - nginx-certs
       restart: always
-      depends_on: nginx-certs
+      depends_on: 
+        - nginx-certs
     nginx-letsencript:
       image: jrcs/letsencrypt-nginx-proxy-companion
       volumes:
