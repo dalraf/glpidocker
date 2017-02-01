@@ -5,5 +5,7 @@ RUN docker-php-ext-install mysqli
 RUN docker-php-ext-install gd
 RUN docker-php-ext-install xmlrpc
 RUN docker-php-ext-install curl
+RUN docker-php-ext-install apcu
+RUN docker-php-ext-install opcache
 ADD php.ini /usr/local/etc/php
 
