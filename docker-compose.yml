@@ -1,28 +1,24 @@
-# PHP-Apache container
-glpi:
-  build: ./php
-  ports:
-    - "8090:80"
-  links:
-    - mysql:db
-  volumes:
-    - ./glpi:/var/www/html/glpi
-  restart: unless-stopped 
+version: '2'
+services: 
+    glpi:
+      build: ./php
+      ports:
+        - "8090:80"
+      links:
+        - mysql:db
+      volumes:
+        - ./glpi:/var/www/html/glpi
+      restart: unless-stopped 
+    mysql:
+      image: mariadb
+      environment:
+        - MYSQL_ROOT_PASSWORD=123456
+        - MYSQL_DATABASE=glpi
+      volumes:
+        - mysqldata:/var/lib/mysql
+        - ./database:/docker-entrypoint-initdb.d
+      restart: unless-stopped
+volumes:
+  mysqldata:
+    driver: local
 
-# Database persistent data
-mysqldata:
-  image: ubuntu
-  volumes:
-    - /var/lib/mysql
-
-# Database container
-mysql:
-  image: mariadb
-  environment:
-    - MYSQL_ROOT_PASSWORD=123456
-    - MYSQL_DATABASE=glpi
-  volumes_from:
-    - mysqldata
-  volumes:
-    - ./database:/docker-entrypoint-initdb.d
-  restart: unless-stopped 
