@@ -1,5 +1,6 @@
 version: '2'
-services: 
+services:
+  env_file: variaveis.env
     glpi:
       build: ./php
       ports:
