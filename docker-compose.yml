@@ -49,8 +49,6 @@ services:
     nginx-letsencript:
       image: jrcs/letsencrypt-nginx-proxy-companion
       volumes:
-        - /var/www/html/data
-        - /var/www/html/config
         - /var/run/docker.sock:/var/run/docker.sock:ro
       volumes_from:
         - nginx-proxy
