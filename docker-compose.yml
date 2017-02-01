@@ -16,7 +16,7 @@ services:
     mysql:
       image: mariadb
       environment:
-        - MYSQL_ROOT_PASSWORD=${MYSQLPASSWORD)
+        - MYSQL_ROOT_PASSWORD=${MYSQLPASSWORD}
         - MYSQL_DATABASE=${MYSQLDATABASE}
       volumes:
         - mysqldata:/var/lib/mysql
