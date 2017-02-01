@@ -7,5 +7,7 @@ RUN docker-php-ext-install xmlrpc
 RUN docker-php-ext-install curl
 RUN docker-php-ext-install apcu
 RUN docker-php-ext-install opcache
+RUN docker-php-ext-install ldap
+RUN docker-php-ext-install imap
 ADD php.ini /usr/local/etc/php
 
