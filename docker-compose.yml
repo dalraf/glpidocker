@@ -1,5 +1,4 @@
 version: '2'
-env_file: variaveis.env
 services:
     glpi:
       build: ./php
