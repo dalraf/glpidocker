@@ -18,6 +18,11 @@ services:
         - mysqldata:/var/lib/mysql
         - ./database:/docker-entrypoint-initdb.d
       restart: unless-stopped
+    logrotate:
+      build: ./logrotate
+      volumes:
+        - ./glpi/files/_log:/logs
+      restart: unless-stopped 
 volumes:
   mysqldata:
     driver: local
