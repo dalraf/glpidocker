@@ -3,7 +3,7 @@ services:
     glpi:
       build: ./php
       ports:
-        - "8090:80"
+        - "80:80"
       links:
         - mysql:db
       volumes:
